@@ -13,7 +13,7 @@ interface ITestInterface {
 
 @autobind
 @observer
-class App extends React.Component<{}, ITestInterface> {
+export default class App extends React.Component<any, ITestInterface> {
 
   public state: ITestInterface = {
     current: 'home'
@@ -52,5 +52,3 @@ class App extends React.Component<{}, ITestInterface> {
     )
   }
 }
-
-export default App
