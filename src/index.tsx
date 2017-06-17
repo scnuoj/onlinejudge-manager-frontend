@@ -2,13 +2,22 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import './index.css'
 import { Route, HashRouter } from 'react-router-dom'
+import Home from './components/Home'
+import { Provider } from 'mobx-react'
+import * as stores from './stores'
+
+import './index.css'
 
 ReactDOM.render(
   <HashRouter>
-    <Route path="/" component={App}/>
+    <Provider { ...stores }>
+      <App>
+        <Route exact path="/" component={ Home }/>
+      </App>
+    </Provider>
   </HashRouter>,
   document.getElementById('root') as HTMLElement
 )
+
 registerServiceWorker()
