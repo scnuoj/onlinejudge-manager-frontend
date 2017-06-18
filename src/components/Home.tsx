@@ -34,19 +34,23 @@ export default class Home extends React.Component<IHomeProps, IHomeInterface> {
 
   public state: IHomeInterface = {
     columns: [{
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      title: '题目 ID',
+      dataIndex: 'id',
+      key: 'id',
       render: text => <a href="#">{ text }</a>,
     }, {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: '标题',
+      dataIndex: 'title',
+      key: 'title',
     }, {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: '通过次数',
+      dataIndex: 'passCount',
+      key: 'passCount',
     }, {
+      title: '提交次数',
+      dataIndex: 'submitCount',
+      key: 'submitCount',
+    },  {
       title: 'Action',
       key: 'action',
       render: (text, record) => (
@@ -79,10 +83,13 @@ export default class Home extends React.Component<IHomeProps, IHomeInterface> {
     }]
   }
 
+  componentDidMount () {
+    this.props.problemStore.fetchProblemList()
+  }
+
   render () {
-    console.log(this.props.problemStore)
     return (
-      <Table columns={ this.state.columns } dataSource={ this.state.data } />
+      <Table columns={ this.state.columns } dataSource={ this.props.problemStore.problems } />
     )
   }
 }
