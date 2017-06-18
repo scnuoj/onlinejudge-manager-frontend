@@ -11,9 +11,9 @@ import './index.css'
 
 ReactDOM.render(
   <HashRouter>
-    <Provider { ...stores }>
+    <Provider {...stores}>
       <App>
-        <Route exact path="/" component={ Home }/>
+        <Route exact path="/" component={Home}/>
       </App>
     </Provider>
   </HashRouter>,

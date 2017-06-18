@@ -37,7 +37,7 @@ export default class Home extends React.Component<IHomeProps, IHomeInterface> {
       title: '题目 ID',
       dataIndex: 'id',
       key: 'id',
-      render: text => <a href="#">{ text }</a>,
+      render: text => <a href="#">{text}</a>,
     }, {
       title: '标题',
       dataIndex: 'title',
@@ -55,7 +55,7 @@ export default class Home extends React.Component<IHomeProps, IHomeInterface> {
       key: 'action',
       render: (text, record) => (
         <span>
-          <a href="#">Action 一 { record.name }</a>
+          <a href="#">Action 一 {record.name}</a>
           <span className="ant-divider" />
           <a href="#">Delete</a>
           <span className="ant-divider" />
@@ -89,7 +89,7 @@ export default class Home extends React.Component<IHomeProps, IHomeInterface> {
 
   render () {
     return (
-      <Table columns={ this.state.columns } dataSource={ this.props.problemStore.problems } />
+      <Table columns={this.state.columns} dataSource={this.props.problemStore.problems} />
     )
   }
 }
