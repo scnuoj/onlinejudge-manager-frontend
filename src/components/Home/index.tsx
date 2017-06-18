@@ -2,7 +2,7 @@ import * as React from 'react'
 import { autobind } from 'core-decorators'
 import { Table, Icon } from 'antd'
 import { observer, inject } from 'mobx-react'
-import { ProblemStore } from '../stores'
+import { ProblemStore } from '../../stores'
 import { RouteComponentProps } from 'react-router'
 
 interface ITableColumn {

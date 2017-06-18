@@ -17,7 +17,7 @@ interface ITestInterface {
 
 @autobind
 @observer
-export default class App extends React.Component<{ children: JSX.Element }, ITestInterface> {
+export default class App extends React.Component<{ children: JSX.Element[] }, ITestInterface> {
 
   public state: ITestInterface = {
     current: 'home',
@@ -49,10 +49,10 @@ export default class App extends React.Component<{ children: JSX.Element }, ITes
           </div>
           <Menu theme="dark" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="vertical" defaultSelectedKeys={['home']}>
             <Menu.Item key="home">
-              <Icon type="home"/>首页
+              <a href="#"><Icon type="home"/>首页</a>
             </Menu.Item>
             <Menu.Item key="database">
-              <Icon type="database"/>题库
+              <a href="#/problems"><Icon type="database"/>题库</a>
             </Menu.Item>
             <SubMenu title={<span><Icon type="solution" />提交</span>}>
               <MenuItemGroup title="Item 1">
