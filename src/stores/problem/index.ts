@@ -1,9 +1,18 @@
 import { observable, toJS, action, computed } from 'mobx'
 import axios from 'axios'
-import { IProblem } from './interface'
+import { IProblem, IProblemCreateForm } from './interface'
 
 class ProblemStore {
   @observable problemList: IProblem[] = []
+  @observable form: IProblemCreateForm = {
+    title: '123123',
+    sample: '',
+    sampleInput: '',
+    sampleOutput: '',
+    description: '',
+    inputData: '',
+    outputData: ''
+  }
   @observable problemCount: number = 0
 
   @computed get problems () {
@@ -28,6 +37,11 @@ class ProblemStore {
     return this.problemList.map(problem => toJS(problem))
   }
 
+  async createProblem () {
+    console.log(this.form)
+    await axios.post('http://localhost:8080/v1/problems', this.form)
+  }
+
   async fetchProblemList () {
     const res = await axios.get('http://localhost:8080/v1/problems', {
       params: {
@@ -37,8 +51,8 @@ class ProblemStore {
         sortby: 'id'
       }
     })
-    this.setProblemList(res.data.data.rows)
-    this.setProblemCount(res.data.data.count)
+    this.setProblemList(res.data.data[0])
+    this.setProblemCount(res.data.data[1])
   }
 }
 

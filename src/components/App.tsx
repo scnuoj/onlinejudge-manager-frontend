@@ -4,7 +4,7 @@ import { autobind } from 'core-decorators'
 import { Menu, Icon, Layout } from 'antd'
 import { observer } from 'mobx-react'
 
-const logo = require('./logo.svg')
+const logo = require('../logo.svg')
 
 const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
@@ -49,12 +49,12 @@ export default class App extends React.Component<{ children: JSX.Element[] }, IT
           </div>
           <Menu theme="dark" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="vertical" defaultSelectedKeys={['home']}>
             <Menu.Item key="home">
-              <a href="#"><Icon type="home"/>首页</a>
+              <a href="#"><Icon type="home"/>所有题目</a>
             </Menu.Item>
             <Menu.Item key="database">
-              <a href="#/problems"><Icon type="database"/>题库</a>
+              <a href="#/problems"><Icon type="database"/>创建题目</a>
             </Menu.Item>
-            <SubMenu title={<span><Icon type="solution" />提交</span>}>
+            <SubMenu title={<span><Icon type="solution" />所有提交</span>}>
               <MenuItemGroup title="Item 1">
                 <Menu.Item key="setting:1">Option 1</Menu.Item>
                 <Menu.Item key="setting:2">Option 2</Menu.Item>
@@ -65,7 +65,7 @@ export default class App extends React.Component<{ children: JSX.Element[] }, IT
               </MenuItemGroup>
             </SubMenu>
             <Menu.Item key="appstore">
-              <a href="https://ant.design" target="_blank" rel="noopener noreferrer"><Icon type="compass"/>题库</a>
+              <a href="https://ant.design" target="_blank" rel="noopener noreferrer"><Icon type="compass"/>进入网站</a>
             </Menu.Item>
           </Menu>
         </Layout.Sider>

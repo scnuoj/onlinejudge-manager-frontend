@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import App from './App'
+import App from './components/App'
 import registerServiceWorker from './registerServiceWorker'
 import { Route, HashRouter } from 'react-router-dom'
 import Home from './components/Home'

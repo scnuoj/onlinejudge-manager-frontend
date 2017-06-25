@@ -17,3 +17,13 @@ export interface IProblem {
   maxMemory: number
   maxProcessNumber: number
 }
+
+export interface IProblemCreateForm {
+  title: string
+  description: string
+  sampleInput: string
+  sampleOutput: string
+  sample: string
+  inputData: string
+  outputData: string
+}

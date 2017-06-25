@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { autobind } from 'core-decorators'
-import { Table, Icon } from 'antd'
+import { Table, Icon, Layout } from 'antd'
 import { observer, inject } from 'mobx-react'
 import { ProblemStore } from '../../stores'
 import { RouteComponentProps } from 'react-router'
@@ -55,13 +55,10 @@ export default class Home extends React.Component<IHomeProps, IHomeInterface> {
       key: 'action',
       render: (text, record) => (
         <span>
-          <a href="#">Action 一 {record.name}</a>
+          <a href="#"><Icon type="edit" /> 编辑</a>
           <span className="ant-divider" />
-          <a href="#">Delete</a>
+          <a href="#"><Icon type="delete" /> 删除</a>
           <span className="ant-divider" />
-          <a href="#" className="ant-dropdown-link">
-            More actions <Icon type="down" />
-          </a>
         </span>
       ),
     }],
@@ -89,7 +86,11 @@ export default class Home extends React.Component<IHomeProps, IHomeInterface> {
 
   render () {
     return (
-      <Table columns={this.state.columns} dataSource={this.props.problemStore.problems} />
+      <Layout>
+        <Layout.Content>
+          <Table columns={this.state.columns} dataSource={this.props.problemStore.problems} />
+        </Layout.Content>
+      </Layout>
     )
   }
 }
